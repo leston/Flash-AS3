@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>recebe</title>
+		
+		<script language="javascript">
+			//This javascript function return the reference to the flash movie obj box in whatever browse
+			function thisMovie(movieName) {
+				if(navigator.appName.indexOf("Microsoft") != -1) {
+						return window[movieName];
+				} else {
+					return document[movieName];
+				}
+			}
+			// Função que recebe e guarda o valor dos butões e o envia para o flash
+			function enviarDoForm(valor) {
+				thisMovie("FlashRecebe").enviar(valor);
+			}
+		</script>
+
+	</head>
+	<body>
+	 <!-- contianer do video em flash publicado --> 
+		<div id="flashContent">
+			<object type="application/x-shockwave-flash" data="recebe.swf" width="320" height="240" id="FlashRecebe" style="float: none; vertical-align:middle">
+				<param name="movie" value="recebe.swf" />
+				<param name="quality" value="high" />
+				<param name="bgcolor" value="#ffffff" />
+				<param name="play" value="true" />
+				<param name="loop" value="true" />
+				<param name="wmode" value="window" />
+				<param name="scale" value="showall" />
+				<param name="menu" value="true" />
+				<param name="devicefont" value="false" />
+				<param name="salign" value="" />
+				<param name="allowScriptAccess" value="sameDomain" />
+				<a href="http://www.adobe.com/go/getflash">
+					<img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player" />
+				</a>
+			</object>
+		</div>	
+		<!-- butões de conrolo do video do flash -->
+		<button id="play" value="play" onclick="javascript:enviarDoForm(this.value);"> Play </button>
+		<button id="pause" value="pause" onclick="javascript:enviarDoForm(this.value);"> Pause </button>
+		<button id="stop" value="stop" onclick="javascript:enviarDoForm(this.value);"> Stop </button> 	
+  
+	</body>
+</html>
